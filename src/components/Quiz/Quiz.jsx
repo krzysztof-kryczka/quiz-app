@@ -23,7 +23,7 @@ const Quiz = ({ endQuiz }) => {
       if (currentQuestion + 1 < QUESTIONS.length) {
          setCurrentQuestion(currentQuestion + 1)
       } else {
-         endQuiz(score, updatedAnswers)
+         endQuiz(score + (answer.isCorrect ? 1 : 0), updatedAnswers)
       }
    }
 
