@@ -3,7 +3,7 @@ import Button from '../Button/Button'
 import css from './Quiz.module.css'
 import { QUESTIONS } from '../../quizQuestions'
 
-const Quiz = () => {
+const Quiz = ({ endQuiz }) => {
    const [currentQuestion, setCurrentQuestion] = useState(0)
    const [userAnswers, setUserAnswers] = useState([])
    const [score, setScore] = useState(0)
@@ -23,8 +23,7 @@ const Quiz = () => {
       if (currentQuestion + 1 < QUESTIONS.length) {
          setCurrentQuestion(currentQuestion + 1)
       } else {
-         console.log('KONIEC!')
-         console.log(score)
+         endQuiz(score, updatedAnswers)
       }
    }
 

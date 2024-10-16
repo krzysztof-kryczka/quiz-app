@@ -1,9 +1,11 @@
 import Button from '../Button/Button'
 
-const StartScreen = () => (
+const StartScreen = ({ startQuiz }) => (
    <div>
       <h1>JavaScript Quiz!</h1>
-      <Button styleType="start">Rozpocznij Quiz</Button>
+      <Button styleType="start" onClick={startQuiz}>
+         Rozpocznij Quiz
+      </Button>
    </div>
 )
 
