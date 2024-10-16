@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import Button from '../Button/Button'
-import css from './Quiz.module.css'
 import { QUESTIONS } from '../../quizQuestions'
+import QuestionList from '../Question/QuestionList'
 
 const Quiz = ({ endQuiz }) => {
    const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -28,16 +27,11 @@ const Quiz = ({ endQuiz }) => {
    }
 
    return (
-      <div className={css['container-question']}>
-         <p className={css.question}>
-            Pytanie {currentQuestion + 1}: {QUESTIONS[currentQuestion].text}
-         </p>
-         {QUESTIONS[currentQuestion].answers.map((answer, index) => (
-            <Button styleType="answer" key={index} onClick={() => handleAnswerClick(answer)}>
-               {answer.text}
-            </Button>
-         ))}
-      </div>
+      <QuestionList
+         questions={QUESTIONS}
+         currentQuestionIndex={currentQuestion}
+         handleAnswerClick={handleAnswerClick}
+      />
    )
 }
 
