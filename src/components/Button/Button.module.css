@@ -14,3 +14,12 @@
 .answer:hover {
    background-color: #03723e;
 }
+
+.end {
+    width: 350px;
+   background-color: #006701;
+}
+
+.end:hover {
+background-color: #11be14;
+}

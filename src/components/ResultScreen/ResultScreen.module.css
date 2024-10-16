@@ -1,0 +1,20 @@
+.pass,
+.answer-correct {
+   color: #008000;
+}
+
+.fail,
+.answer-incorrect {
+   color: #ff0000;
+}
+
+ul {
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   list-style: none;
+}
+
+.question {
+   color: #3676bd;
+}

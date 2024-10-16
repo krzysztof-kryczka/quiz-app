@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import StartScreen from './components/StartScreen/StartScreen'
 import Quiz from './components/Quiz/Quiz'
+import ResultScreen from './components/ResultScreen/ResultScreen'
 
 const App = () => {
    const [quizState, setQuizState] = useState('start')
@@ -20,9 +21,14 @@ const App = () => {
       setQuizState('end')
    }
 
+   const resetQuiz = () => {
+      setQuizState('start')
+   }
+
    const stateComponents = {
       start: <StartScreen startQuiz={startQuiz} />,
       quiz: <Quiz endQuiz={endQuiz} />,
+      end: <ResultScreen score={score} userAnswers={userAnswers} startQuiz={resetQuiz} />,
    }
 
    return <>{stateComponents[quizState]}</>
