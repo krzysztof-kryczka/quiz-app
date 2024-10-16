@@ -16,10 +16,10 @@
 }
 
 .end {
-    width: 350px;
+   width: 350px;
    background-color: #006701;
 }
 
 .end:hover {
-background-color: #11be14;
+   background-color: #11be14;
 }
