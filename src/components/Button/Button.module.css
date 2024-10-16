@@ -1,9 +1,16 @@
-.button {
+.start {
    background-color: #1290cf;
-   color: #fff;
-   cursor: pointer;
 }
 
-.button:hover {
+.start:hover {
    background-color: #06567e;
+}
+
+.answer {
+   width: 350px;
+   background-color: #0a2619;
+}
+
+.answer:hover {
+   background-color: #03723e;
 }
