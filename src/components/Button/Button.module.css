@@ -1,0 +1,25 @@
+.start {
+   background-color: #1290cf;
+}
+
+.start:hover {
+   background-color: #06567e;
+}
+
+.answer {
+   width: 350px;
+   background-color: #0a2619;
+}
+
+.answer:hover {
+   background-color: #03723e;
+}
+
+.end {
+   width: 350px;
+   background-color: #006701;
+}
+
+.end:hover {
+   background-color: #11be14;
+}
