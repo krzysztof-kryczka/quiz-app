@@ -5,12 +5,26 @@ import { QUESTIONS } from '../../quizQuestions'
 
 const Quiz = () => {
    const [currentQuestion, setCurrentQuestion] = useState(0)
+   const [userAnswers, setUserAnswers] = useState([])
+   const [score, setScore] = useState(0)
 
    const handleAnswerClick = answer => {
+      const updatedAnswers = [
+         ...userAnswers,
+         { question: QUESTIONS[currentQuestion].text, answer: answer.text, isCorrect: answer.isCorrect },
+      ]
+
+      setUserAnswers(updatedAnswers)
+
+      if (answer.isCorrect) {
+         setScore(score + 1)
+      }
+
       if (currentQuestion + 1 < QUESTIONS.length) {
          setCurrentQuestion(currentQuestion + 1)
       } else {
          console.log('KONIEC!')
+         console.log(score)
       }
    }
 
