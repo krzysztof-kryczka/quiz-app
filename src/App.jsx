@@ -1,31 +1,37 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import StartScreen from './components/StartScreen/StartScreen'
+import Quiz from './components/Quiz/Quiz'
+import ResultScreen from './components/ResultScreen/ResultScreen'
 
-function App() {
-   const [count, setCount] = useState(0)
+const App = () => {
+   const [quizState, setQuizState] = useState('start')
+   const [score, setScore] = useState(0)
+   const [userAnswers, setUserAnswers] = useState([])
 
-   return (
-      <>
-         <div>
-            <a href="https://vitejs.dev" target="_blank">
-               <img src={viteLogo} className="logo" alt="Vite logo" />
-            </a>
-            <a href="https://react.dev" target="_blank">
-               <img src={reactLogo} className="logo react" alt="React logo" />
-            </a>
-         </div>
-         <h1>Vite + React</h1>
-         <div className="card">
-            <button onClick={() => setCount(count => count + 1)}>count is {count}</button>
-            <p>
-               Edit <code>src/App.jsx</code> and save to test HMR
-            </p>
-         </div>
-         <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-      </>
-   )
+   const startQuiz = () => {
+      setQuizState('quiz')
+      setScore(0)
+      setUserAnswers([])
+   }
+
+   const endQuiz = (score, answers) => {
+      setScore(score)
+      setUserAnswers(answers)
+      setQuizState('end')
+   }
+
+   const resetQuiz = () => {
+      setQuizState('start')
+   }
+
+   const stateComponents = {
+      start: <StartScreen startQuiz={startQuiz} />,
+      quiz: <Quiz endQuiz={endQuiz} />,
+      end: <ResultScreen score={score} userAnswers={userAnswers} startQuiz={resetQuiz} />,
+   }
+
+   return <>{stateComponents[quizState]}</>
 }
 
 export default App
